@@ -1,0 +1,4 @@
+#Thu Jan 16 09:56:40 CLST 2020
+base.0=C\:\\Users\\nichh\\Downloads\\proing\\proing\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
