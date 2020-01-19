@@ -7,7 +7,8 @@ import 'package:proing/src/pages/edificios_page.dart';
 import 'package:proing/src/pages/infopucv_page.dart';
 
 
-
+//NO SE QUE IMPORTACION ES (NO ENTENDÍ)
+import 'package:proing/src/pages/miperfil_page.dart';
 
 //mis importaciones
 import 'package:proing/src/pages/login_page.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
           'infopucv'  : (BuildContext context) => InfopucvPage(),
           'edificios' : (BuildContext context) => EdificiosPage(),
           'calendario': (BuildContext context) => CalendarioPage(),
+          'miperfil'  : (BuildContext context) => MiPerfil(),
         },
     ),
   );

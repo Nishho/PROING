@@ -80,6 +80,10 @@ Widget _homeMenu(BuildContext context) {
         children: <Widget>[
           Column(
             children: <Widget>[
+              _botonPerfilUsuario(context),
+              SizedBox(height: 10.0),
+              Text("Mi perfil"),
+              SizedBox(height: 50.0),
               _botonCalendario(context),
               SizedBox(height: 10.0),
               Text("Calendario/Horario"),
@@ -150,6 +154,16 @@ Widget _crearFondo(BuildContext context){
   );
 
   return fondoBeige;
+}
+
+Widget _botonPerfilUsuario(BuildContext context){
+
+  return RaisedButton(
+        child: Icon(Icons.calendar_today, size: 60),
+        onPressed:() {
+          Navigator.pushNamed(context, 'miperfil');
+        } ,
+);
 }
 
 Widget _botonCalendario(BuildContext context){
