@@ -58,10 +58,15 @@ Widget _homeMenu(BuildContext context) {
   //final bloc = Provider.of(context);
   final size = MediaQuery.of(context).size;
 
-  return SingleChildScrollView(
+  return Column(children: <Widget>[
+  Container(
+            //margin: EdgeInsets.symmetric(vertical: 0, horizontal: 1.0),
+            child: _botonPerfilUsuario(context),
+            ),
+  SingleChildScrollView(
     child: Container(
        width: size.width * 1,
-       margin: EdgeInsets.symmetric(vertical: 130, horizontal: 10.0),
+       margin: EdgeInsets.symmetric(vertical: 70, horizontal: 10.0),
        padding: EdgeInsets.symmetric( vertical: 10.0), 
        decoration: BoxDecoration(
              color: Color.fromRGBO(201, 255, 253, 1),
@@ -80,10 +85,6 @@ Widget _homeMenu(BuildContext context) {
         children: <Widget>[
           Column(
             children: <Widget>[
-              _botonPerfilUsuario(context),
-              SizedBox(height: 10.0),
-              Text("Mi perfil"),
-              SizedBox(height: 50.0),
               _botonCalendario(context),
               SizedBox(height: 10.0),
               Text("Calendario/Horario"),
@@ -130,8 +131,10 @@ Widget _homeMenu(BuildContext context) {
             ],
             )
         ],)
-    )
-);
+      )
+     ),
+    ],
+  );
 }
 
 

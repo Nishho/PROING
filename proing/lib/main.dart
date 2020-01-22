@@ -4,6 +4,7 @@ import 'package:proing/src/pages/ajustes_page.dart';
 import 'package:proing/src/pages/avisos_page.dart';
 import 'package:proing/src/pages/calendario_page.dart';
 import 'package:proing/src/pages/edificios_page.dart';
+//import 'package:proing/src/pages/info_profesor.dart';
 import 'package:proing/src/pages/infopucv_page.dart';
 
 
@@ -18,7 +19,7 @@ import 'package:proing/src/pages/logros_page.dart';
 import 'package:proing/src/pages/misprofesores_page.dart';
 import 'package:proing/src/pages/misramos_page.dart';
 import 'package:proing/src/pages/votacion_page.dart';
- 
+//import 'package:proing/info_profes.dart';
 
 void main() => runApp(MyApp());
  
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       initialRoute: 'login',
         routes: {
-          'login'     : (BuildContext context ) => LoginPage(),
+          'login'     : (BuildContext context) => LoginPage(),
           'home'      : (BuildContext context) => HomePage(),
           'misramos'  : (BuildContext context) => MisramosPage(),
           'votacion'  : (BuildContext context) => VotacionPage(),
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
           'edificios' : (BuildContext context) => EdificiosPage(),
           'calendario': (BuildContext context) => CalendarioPage(),
           'miperfil'  : (BuildContext context) => MiPerfil(),
+          //'verprofe'  : (BuildContext context) => VerinfoProfe()
         },
     ),
   );
