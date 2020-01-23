@@ -6,8 +6,7 @@ import 'package:proing/src/utils/utils.dart';
 
 
 
-class LoginPage extends StatelessWidget {
-
+class RegisterPage extends StatelessWidget {
 
   final usuarioProvider = new UsuarioProvider();
 
@@ -17,7 +16,7 @@ class LoginPage extends StatelessWidget {
      body: Stack(
        children: <Widget>[
          _crearFondo( context ),
-         _loginForm( context ),
+         _loginForm(context),
        ],
      )
      );
@@ -57,7 +56,7 @@ Widget _loginForm(BuildContext context) {
             ),
             child: Column(
             children: <Widget>[
-            Text('Ingreso', style: TextStyle(fontSize: 20.0)),
+            Text('Registro', style: TextStyle(fontSize: 20.0)),
             SizedBox( height: 30.0,),
             _crearEmail( bloc ),
             SizedBox( height: 30.0,),
@@ -69,8 +68,8 @@ Widget _loginForm(BuildContext context) {
        ),
     FlatButton(
       child:
-       Text('Crear una nueva cuenta.'),
-       onPressed: ()=>Navigator.pushReplacementNamed(context, 'registro'),
+       Text('Iniciar sesión.'),
+       onPressed: ()=>Navigator.pushReplacementNamed(context, 'login'),
        ),  
     ],
   ),
@@ -95,20 +94,20 @@ Widget _crearBoton( LoginBloc bloc ){
       elevation: 0.0,
       color: Color.fromRGBO(36, 33, 202, 1.0),
       textColor: Colors.white,
-      onPressed: snapshot.hasData ? ()=> _login(bloc, context) : null,
+      onPressed: snapshot.hasData ? ()=> _register(bloc, context) : null,
     );
   },
 );  
 }
 
-_login(LoginBloc bloc, BuildContext context) async {
-
-  Map info = await usuarioProvider.login(bloc.email, bloc.password);
+_register(LoginBloc bloc, BuildContext context) async{
+  
+  final Map info = await usuarioProvider.nuevoUsuario(bloc.email, bloc.password);
 
   if ( info['ok']){
     Navigator.pushReplacementNamed(context, 'home');
   }else{
-    mostrarAlerta( context, 'Usuario o Contraseña no validos' );
+    mostrarAlerta( context, 'El email ingresado ya esta registrado' );
   }
 
 }
@@ -181,8 +180,6 @@ Widget _crearFondo(BuildContext context){
     width: double.infinity,
     decoration: BoxDecoration(
       gradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,  
       colors: <Color> [
         Color.fromRGBO(16, 50, 127, 1.0),
         Color.fromRGBO(22, 102, 160, 1.0),
@@ -199,19 +196,20 @@ Widget _crearFondo(BuildContext context){
       Container(
         padding: EdgeInsets.only(top: 30.0),
         child: Column(
-          children: <Widget>[
+          children: <Widget>[ 
             SizedBox(height : 10.0, width: double.infinity),
-              Container(
-              width: 200,
-              height: 100,
-              child: Image.network('http://inf.ucv.cl/images/stories/Archivos/LOGOS/logo_escuela.png'),
-            ),            Text('iCalendar', style: TextStyle(
+            Text('iCalendar', style: TextStyle(
                                                       color: Colors.white, 
                                                       fontSize : 50, 
                                                       fontFamily: 'Limelight-Regular'
                                                       )
-           ),                                     
-          ],
+              ),
+              Container(
+              width: 200,
+              height: 100,
+              child: Image.network('http://inf.ucv.cl/images/stories/Archivos/LOGOS/logo_escuela.png'),
+            ),                                                  
+           ],
          )
       ,)
     ],

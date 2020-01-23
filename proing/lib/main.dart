@@ -18,15 +18,27 @@ import 'package:proing/src/bloc/provider.dart';
 import 'package:proing/src/pages/logros_page.dart';
 import 'package:proing/src/pages/misprofesores_page.dart';
 import 'package:proing/src/pages/misramos_page.dart';
+import 'package:proing/src/pages/register_page.dart';
 import 'package:proing/src/pages/votacion_page.dart';
+import 'package:proing/src/preferencias_usuarios/preferencias_usuarios.dart';
 //import 'package:proing/info_profes.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized(); 
+  final prefs = new PreferenciasUsuario();
+  await prefs.initPrefs();
+
+  runApp(MyApp());
+
+}
  
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+   final prefs = new PreferenciasUsuario();
+   print(prefs.token);
 
   return Provider(
       child:    MaterialApp(
@@ -45,6 +57,7 @@ class MyApp extends StatelessWidget {
           'edificios' : (BuildContext context) => EdificiosPage(),
           'calendario': (BuildContext context) => CalendarioPage(),
           'miperfil'  : (BuildContext context) => MiPerfil(),
+          'registro'  : (BuildContext context) => RegisterPage(),
           //'verprofe'  : (BuildContext context) => VerinfoProfe()
         },
     ),

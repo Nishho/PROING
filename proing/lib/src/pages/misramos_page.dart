@@ -36,6 +36,8 @@ class MisramosPage extends StatelessWidget {
      );
   }
 
+
+/*
   List<Widget> _crearItemsRamos(){
 
     return ramos.map( ( item ){
@@ -55,8 +57,9 @@ class MisramosPage extends StatelessWidget {
     }).toList();
     
   }
-
+*/
 }
+
 
 Widget _buildItem(Detalle textTitle) {
   return new ListTile(

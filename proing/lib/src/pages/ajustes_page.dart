@@ -1,13 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:proing/info_usuario.dart';
+import 'package:proing/src/preferencias_usuarios/preferencias_usuarios.dart';
 
 
 
-class AjustesPage extends StatelessWidget {
+class AjustesPage extends StatefulWidget {
 
   @override
-  Widget build(BuildContext context) {
+  _AjustesPageState createState() => _AjustesPageState();
+}
 
+class _AjustesPageState extends State<AjustesPage> {
+ 
+bool _colorSecundario = true;
+
+final prefs = new PreferenciasUsuario();
+
+
+  @override
+ void initState() {
+    super.initState();
+
+    _colorSecundario = prefs.colorSecundario;
+}
+
+
+
+@override
+Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
         title: Text('Ajustes',
@@ -24,15 +44,28 @@ class AjustesPage extends StatelessWidget {
      body: Stack(
        children: <Widget>[
          _crearFondo( context ),
+                  Container(
+                  padding: EdgeInsets.symmetric(vertical: 100),
+                  child:  SwitchListTile(
+                         value: _colorSecundario,
+                         title: Text ('Color Secundario'),
+                         onChanged: ( value ){
+                          setState((){
+                           _colorSecundario = value;
+                           prefs.colorSecundario = value; 
+                           });
+           },
+         ),
+        ),
          new ListView(
           children: usu.map(_buildItem).toList()
-        ),
+         ),
         /// _loginForm(context),
        ],
      )
      );
   }
-}
+ 
 
 
 Widget _buildItem(Usuario textTitle) {
@@ -66,4 +99,5 @@ Widget _crearFondo(BuildContext context){
   );
 
   return fondoBeige;
+}
 }

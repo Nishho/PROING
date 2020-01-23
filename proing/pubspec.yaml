@@ -25,6 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   rxdart: ^0.23.1
   flutter_swiper: ^1.1.6
+  http:
+  shared_preferences:  
   
 
 dev_dependencies:

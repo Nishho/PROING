@@ -15,7 +15,8 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
      appBar: AppBar(
-       title: Text('                              Menu Principal',
+       centerTitle: true,
+       title: Text('Menu Principal',
        style: TextStyle(
          fontFamily: 'Limelight-Regular',
        ),)
@@ -60,13 +61,24 @@ Widget _homeMenu(BuildContext context) {
 
   return Column(children: <Widget>[
   Container(
+            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+            alignment: Alignment.topLeft,
             //margin: EdgeInsets.symmetric(vertical: 0, horizontal: 1.0),
-            child: _botonPerfilUsuario(context),
+            child: Column(
+              children: <Widget>[
+                _botonPerfilUsuario(context),
+                Text('Mi perfil',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+                ),
+              ],
+            ),
             ),
   SingleChildScrollView(
     child: Container(
        width: size.width * 1,
-       margin: EdgeInsets.symmetric(vertical: 70, horizontal: 10.0),
+       margin: EdgeInsets.symmetric(vertical: 50, horizontal: 10.0),
        padding: EdgeInsets.symmetric( vertical: 10.0), 
        decoration: BoxDecoration(
              color: Color.fromRGBO(201, 255, 253, 1),
@@ -114,7 +126,7 @@ Widget _homeMenu(BuildContext context) {
               Text("Ajustes"),              
             ],
             ),
-            SizedBox(width: 1),
+            SizedBox(width: 10),
           Column(
             children: <Widget>[
               _botonAvisos(context),
@@ -162,7 +174,9 @@ Widget _crearFondo(BuildContext context){
 Widget _botonPerfilUsuario(BuildContext context){
 
   return RaisedButton(
-        child: Icon(Icons.calendar_today, size: 60),
+        shape: CircleBorder(),
+        color: Colors.white,
+        child: Icon(Icons.person, size: 60),
         onPressed:() {
           Navigator.pushNamed(context, 'miperfil');
         } ,
