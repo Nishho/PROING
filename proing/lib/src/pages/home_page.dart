@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proing/src/preferencias_usuarios/preferencias_usuarios.dart';
 
 //mis importaciones
 
@@ -8,6 +9,8 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
 
+  final prefs = new PreferenciasUsuario();
+
   @override
   Widget build(BuildContext context) {
 
@@ -15,6 +18,7 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
      appBar: AppBar(
+       backgroundColor: (prefs.colorSecundario) ? Colors.black : Colors.blue,
        centerTitle: true,
        title: Text('Menu Principal',
        style: TextStyle(
@@ -29,30 +33,7 @@ class HomePage extends StatelessWidget {
      )
    );
   }
-}
 
-
-/*
-class HomePage extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-
-    final bloc = Provider.of(context);
-
-    return Scaffold(
-     appBar: AppBar(
-       title: Text('Home')
-        ),
-        body: Column(
-          children: <Widget>[
-            Text('Email: ${ bloc.email }'),
-            Text('Password: ${ bloc.password }')
-          ],)
-   );
-  }
-}
-*/
 
 Widget _homeMenu(BuildContext context) {
 
@@ -81,7 +62,7 @@ Widget _homeMenu(BuildContext context) {
        margin: EdgeInsets.symmetric(vertical: 50, horizontal: 10.0),
        padding: EdgeInsets.symmetric( vertical: 10.0), 
        decoration: BoxDecoration(
-             color: Color.fromRGBO(201, 255, 253, 1),
+             color: (prefs.colorSecundario) ? Colors.purple : Color.fromRGBO(201, 255, 253, 1),
              borderRadius: BorderRadius.circular(5.0),
              boxShadow: <BoxShadow>[
                BoxShadow(
@@ -159,12 +140,17 @@ Widget _crearFondo(BuildContext context){
     width: double.infinity,
     decoration: BoxDecoration(
       gradient: LinearGradient(
-      colors: <Color> [
+      colors: (prefs.colorSecundario) ? <Color> [
+        Color.fromRGBO(70, 9, 116, 1.0),
+        Color.fromRGBO(130, 39, 198, 1.0),
+        Color.fromRGBO(183, 107, 241, 1.0)
+        ]
+        :<Color> [
         Color.fromRGBO(16, 50, 127, 1.0),
         Color.fromRGBO(22, 102, 160, 1.0),
         Color.fromRGBO(75, 204, 208, 1.0)
         ]
-      )    
+      )   
     ),
   );
 
@@ -275,7 +261,7 @@ Widget  _botonMisRamos(BuildContext context){
         } ,
 );
 }
-
+}
 /*_misRamos(BuildContext context){
 
     Navigator.pushReplacementNamed(context, 'home');

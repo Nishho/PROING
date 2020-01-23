@@ -21,7 +21,7 @@ final prefs = new PreferenciasUsuario();
  void initState() {
     super.initState();
 
-    _colorSecundario = prefs.colorSecundario;
+   _colorSecundario = prefs.colorSecundario;
 }
 
 
@@ -30,13 +30,16 @@ final prefs = new PreferenciasUsuario();
 Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: (prefs.colorSecundario) ? Colors.black : Colors.blue,
         title: Text('Ajustes',
         style: TextStyle(
          fontFamily: 'Limelight-Regular',
        ),),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon( Icons.arrow_back_ios),
+        child: Icon( Icons.arrow_back_ios,
+        ),
+        backgroundColor: (prefs.colorSecundario) ? Colors.black : Colors.blue,
         onPressed: (){
           Navigator.pop(context);
         },
@@ -44,22 +47,29 @@ Widget build(BuildContext context){
      body: Stack(
        children: <Widget>[
          _crearFondo( context ),
-                  Container(
-                  padding: EdgeInsets.symmetric(vertical: 100),
-                  child:  SwitchListTile(
-                         value: _colorSecundario,
-                         title: Text ('Color Secundario'),
-                         onChanged: ( value ){
-                          setState((){
-                           _colorSecundario = value;
-                           prefs.colorSecundario = value; 
-                           });
-           },
-         ),
-        ),
          new ListView(
           children: usu.map(_buildItem).toList()
          ),
+                           Container(
+                  padding: EdgeInsets.symmetric(vertical: 100),
+                  child: SwitchListTile(
+                         activeColor: Colors.black,
+                         inactiveThumbColor: Colors.blue,
+                         value: _colorSecundario,
+                         title: Text ('Color Secundario',
+                         style: TextStyle(
+                           color: Colors.white,
+                         ),
+                         ),
+                         onChanged: ( value ){
+                          setState( () {
+                          _colorSecundario = value;
+                          prefs.colorSecundario = value; 
+                           }
+                           );
+           },
+         ),
+        ),
         /// _loginForm(context),
        ],
      )
@@ -89,7 +99,12 @@ Widget _crearFondo(BuildContext context){
     width: double.infinity,
     decoration: BoxDecoration(
       gradient: LinearGradient(
-      colors: <Color> [
+      colors: (prefs.colorSecundario) ? <Color> [
+        Color.fromRGBO(70, 9, 116, 1.0),
+        Color.fromRGBO(130, 39, 198, 1.0),
+        Color.fromRGBO(183, 107, 241, 1.0)
+        ]
+        :<Color> [
         Color.fromRGBO(16, 50, 127, 1.0),
         Color.fromRGBO(22, 102, 160, 1.0),
         Color.fromRGBO(75, 204, 208, 1.0)

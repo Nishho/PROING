@@ -46,7 +46,7 @@ class PreferenciasUsuario {
   }
 
   get colorSecundario{
-    return _prefs.getInt('colorSecundario') ?? false;
+    return _prefs.getBool('colorSecundario') ?? false;
   }
 
   set colorSecundario(bool value){
