@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:proing/info_ramos.dart';
+//import 'package:proing/info_ramos.dart';
 import 'package:proing/src/preferencias_usuarios/preferencias_usuarios.dart';
 
 
@@ -23,23 +23,35 @@ class MisramosPage extends StatelessWidget {
          fontFamily: 'Limelight-Regular',
        ),)
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: (prefs.colorSecundario) ? Colors.black : Colors.blue,
-        child: Icon( Icons.arrow_back_ios),
-        onPressed: (){
-          Navigator.pop(context);
-        },
-      ),
-     body: Stack(
-       children: <Widget>[
+      floatingActionButton: _crearBotones(context),
+      body: Container(
+       child: 
          _crearFondo( context ),
-        new ListView(
-          children: infRamos.map(_buildItem).toList()
-        ),
+        //new ListView(
+        //  children: infRamos.map(_buildItem).toList()
+        //),
         /// _loginForm(context),
-       ],
-     )
-     );
+       
+     ),
+      );
+      
+     
+     
+  }
+
+  Widget _crearBotones(BuildContext context){
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        SizedBox( width: 30.0, ),
+        FloatingActionButton( child: Icon(Icons.add), onPressed: null),
+        Expanded(child: SizedBox( width: 5.0)),
+        FloatingActionButton( child: Icon(Icons.remove), onPressed: null),
+        SizedBox(width: 5.0),
+        FloatingActionButton( child: Icon(Icons.arrow_back_ios), onPressed:  null),
+      ],
+    );
   }
 
 
@@ -66,7 +78,7 @@ class MisramosPage extends StatelessWidget {
 */
 
 
-
+/*
 Widget _buildItem(Detalle textTitle) {
   return new ListTile(
       title: new Text(textTitle.nombre, style: TextStyle(
@@ -80,7 +92,7 @@ Widget _buildItem(Detalle textTitle) {
       },
   );
 }
-
+*/
 Widget _crearFondo(BuildContext context){
 
   final size = MediaQuery.of(context).size;

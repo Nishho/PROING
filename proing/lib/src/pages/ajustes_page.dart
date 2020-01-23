@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:proing/info_usuario.dart';
+//import 'package:proing/info_usuario.dart';
 import 'package:proing/src/preferencias_usuarios/preferencias_usuarios.dart';
 
 
@@ -48,7 +48,7 @@ Widget build(BuildContext context){
        children: <Widget>[
          _crearFondo( context ),
          new ListView(
-          children: usu.map(_buildItem).toList()
+          //children: usu.map(_buildItem).toList()
          ),
                            Container(
                   padding: EdgeInsets.symmetric(vertical: 100),
@@ -77,7 +77,7 @@ Widget build(BuildContext context){
   }
  
 
-
+/*
 Widget _buildItem(Usuario textTitle) {
   return new ListTile(
       title: new Text(textTitle.nombre),
@@ -88,7 +88,7 @@ Widget _buildItem(Usuario textTitle) {
       },
   );
 }
-
+*/
 
 Widget _crearFondo(BuildContext context){
 

@@ -80,7 +80,7 @@ final text4 = nombres[3];
                                       fontFamily: 'Limelight-Regular'
                                       ),
                                   ),
-                                Text('Asignatura: ICA3045-1',
+                                Text('Asignatura: INF4540-1',
                                       style: TextStyle(
                                       fontFamily: 'Limelight-Regular',
                                       ),
@@ -113,7 +113,7 @@ final text4 = nombres[3];
                                       fontFamily: 'Limelight-Regular'
                                       ),
                                   ),
-                                Text('Asignatura: ICA3045-1',
+                                Text('Asignatura: INF3340-1',
                                       style: TextStyle(
                                       fontFamily: 'Limelight-Regular',
                                       ),
@@ -146,7 +146,7 @@ final text4 = nombres[3];
                                       fontFamily: 'Limelight-Regular'
                                       ),
                                   ),
-                                Text('Asignatura: ICA3045-1',
+                                Text('Asignatura: INF4541-0',
                                       style: TextStyle(
                                       fontFamily: 'Limelight-Regular',
                                       ),
@@ -179,7 +179,7 @@ final text4 = nombres[3];
                                       fontFamily: 'Limelight-Regular'
                                       ),
                                   ),
-                                Text('Asignatura: ICA3045-1',
+                                Text('Asignatura: INF2241-1',
                                       style: TextStyle(
                                       fontFamily: 'Limelight-Regular',
                                       ),

@@ -1,5 +1,6 @@
 //importaciones de terceros
 import 'package:flutter/material.dart';
+import 'package:proing/src/pages/agregaramo_page.dart';
 import 'package:proing/src/pages/ajustes_page.dart';
 import 'package:proing/src/pages/avisos_page.dart';
 import 'package:proing/src/pages/calendario_page.dart';
@@ -18,6 +19,7 @@ import 'package:proing/src/bloc/provider.dart';
 import 'package:proing/src/pages/logros_page.dart';
 import 'package:proing/src/pages/misprofesores_page.dart';
 import 'package:proing/src/pages/misramos_page.dart';
+import 'package:proing/src/pages/quitarramo_page.dart';
 import 'package:proing/src/pages/register_page.dart';
 import 'package:proing/src/pages/votacion_page.dart';
 import 'package:proing/src/preferencias_usuarios/preferencias_usuarios.dart';
@@ -58,6 +60,8 @@ class MyApp extends StatelessWidget {
           'calendario': (BuildContext context) => CalendarioPage(),
           'miperfil'  : (BuildContext context) => MiPerfil(),
           'registro'  : (BuildContext context) => RegisterPage(),
+          'agregaramo': (BuildContext context) => AgregaRamo(),
+          'quitarramo': (BuildContext context) => QuitarRamo(),
           //'verprofe'  : (BuildContext context) => VerinfoProfe()
         },
     ),
